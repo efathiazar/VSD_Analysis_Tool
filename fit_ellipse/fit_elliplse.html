@@ -1,0 +1,772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0091)http://www.mathworks.com/matlabcentral/fileexchange/3215-fit-ellipse/content//fit_ellipse.m -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      
+      	<script type="text/javascript" async="" src="./fit_elliplse_files/ahy.js"></script><script src="http://edge.quantserve.com/aquant.js?a=p-zfNtLVVEHXE-1" async="" type="text/javascript"></script><script type="text/javascript" src="./fit_elliplse_files/jquery-latest.js"></script>
+      <!-- START OF GLOBAL NAV -->
+  <link rel="stylesheet" href="./fit_elliplse_files/sitewide.css" type="text/css">
+  <link rel="stylesheet" href="./fit_elliplse_files/mlc.css" type="text/css">
+  <!--[if lt IE 7]>
+  <link href="/matlabcentral/css/ie6down.css" type="text/css" rel="stylesheet">
+  <![endif]-->
+
+      
+      
+<meta name="keywords" content="file exchange, matlab answers, newsgroup access, link exchange, matlab blog, matlab central, simulink blog, matlab community, matlab and simulink community">
+<meta name="description" content="File exchange, MATLAB Answers, newsgroup access, Links, and Blogs for the MATLAB &amp; Simulink user community">
+<link rel="stylesheet" href="./fit_elliplse_files/fileexchange.css" type="text/css">
+<link rel="stylesheet" type="text/css" media="print" href="./fit_elliplse_files/print.css">
+<title> File Exchange - MATLAB Central</title>
+<script src="./fit_elliplse_files/application.js" type="text/javascript"></script>
+<link href="./fit_elliplse_files/application.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./fit_elliplse_files/application(1).css" media="all" rel="stylesheet" type="text/css">
+<link href="./fit_elliplse_files/mw_font.css" media="all" rel="stylesheet" type="text/css">
+<script src="./fit_elliplse_files/application(2).js" type="text/javascript"></script>
+<link href="http://www.mathworks.com/matlabcentral/fileexchange/3215-fit-ellipse/content/fit_ellipse.m" rel="canonical">
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="Search File Exchange" href="http://www.mathworks.com/matlabcentral/fileexchange/search.xml">
+
+
+  <style type="text/css" id="ki-foh-f_"></style><style type="text/css" id="ki-foh-fe"></style></head>
+    <body>
+      <div id="header">
+  <div class="wrapper">
+  <!--put nothing in left div - only 11px wide shadow --> 
+    <div class="main">
+        	<div id="logo"><a href="http://www.mathworks.com/matlabcentral/?s_tid=gn_mlc_logo" title="MATLAB Central Home"><img src="./fit_elliplse_files/mlclogo-whitebgd.gif" alt="MATLAB Central"></a></div>
+      
+        <div id="headertools">      
+
+
+<script language="JavaScript1.3" type="text/javascript">
+
+function submitForm(query){
+
+	choice = document.forms['searchForm'].elements['search_submit'].value;
+	
+	if (choice == "entire1" || choice == "contest" || choice == "matlabcentral" || choice == "blogs"){
+	
+	   var newElem = document.createElement("input");
+	   newElem.type = "hidden";
+	   newElem.name = "q";
+	   newElem.value = query.value;
+	   document.forms['searchForm'].appendChild(newElem);
+	      
+	   submit_action = '/search/site_search.html';
+	}
+	
+	switch(choice){
+	   case "matlabcentral":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "c[]";
+	      newElem.value = "matlabcentral";
+	      document.forms['searchForm'].appendChild(newElem);
+	
+	      selected_index = 0;
+	      break
+	   case "fileexchange":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "term";
+	      newElem.value = query.value;
+	      newElem.classname = "formelem";
+	      document.forms['searchForm'].appendChild(newElem);
+	
+	      submit_action = "/matlabcentral/fileexchange/";
+	      selected_index = 1;
+	      break
+	   case "answers":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "term";
+	      newElem.value = query.value;
+	      newElem.classname = "formelem";
+	      document.forms['searchForm'].appendChild(newElem);
+	
+	      submit_action = "/matlabcentral/answers/";
+	      selected_index = 2;
+	      break
+	   case "cssm":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "search_string";
+	      newElem.value = query.value;
+	      newElem.classname = "formelem";
+	      document.forms['searchForm'].appendChild(newElem);
+	
+		  submit_action = "/matlabcentral/newsreader/search_results";
+	      selected_index = 3;
+	      break
+	   case "linkexchange":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "term";
+	      newElem.value = query.value;
+	      newElem.classname = "formelem";
+	      document.forms['searchForm'].appendChild(newElem);
+	
+	      submit_action = "/matlabcentral/linkexchange/";
+	      selected_index = 4;
+	      break
+	   case "blogs":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "c[]";
+	      newElem.value = "blogs_en";
+	      document.forms['searchForm'].appendChild(newElem);
+	
+	      selected_index = 5;
+	      break
+	   case "trendy":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "search";
+	      newElem.value = query.value;
+	      newElem.classname = "formelem";
+	      document.forms['searchForm'].appendChild(newElem);
+	
+	      submit_action = "/matlabcentral/trendy";
+	      selected_index = 6;
+	      break
+	   case "cody":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "term";
+	      newElem.value = query.value;
+	      newElem.classname = "formelem";
+	      document.forms['searchForm'].appendChild(newElem);
+	
+	      submit_action = "/matlabcentral/cody/";
+	      selected_index = 7;
+	      break
+	   case "contest":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "c[]";
+	      newElem.value = "contest_en";
+	      document.forms['searchForm'].appendChild(newElem);
+	
+	      selected_index = 8;
+	      break
+	   case "entire1":
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "c[]";
+			newElem.value = "entire_site_en";
+	      document.forms['searchForm'].appendChild(newElem);
+	      
+	      selected_index = 9;
+	      break
+	   default:
+	      var newElem = document.createElement("input");
+	      newElem.type = "hidden";
+	      newElem.name = "c[]";
+			newElem.value = "entire_site_en";
+	      document.forms['searchForm'].appendChild(newElem);
+	   
+	      selected_index = 9;
+	      break
+	}
+
+	document.forms['searchForm'].elements['search_submit'].selectedIndex = selected_index;
+	document.forms['searchForm'].elements['query'].value = query.value;
+	document.forms['searchForm'].action = submit_action;
+}
+
+</script>
+
+
+  <form name="searchForm" method="GET" action="" style="margin:0px; margin-top:5px; font-size:90%" onsubmit="submitForm(query)">
+          <label for="search">Search: </label>
+        <select name="search_submit" style="font-size:9px ">
+         	 <option value="matlabcentral">MATLAB Central</option>
+          	<option value="fileexchange" selected="">&nbsp;&nbsp;&nbsp;File Exchange</option>
+          	<option value="answers">&nbsp;&nbsp;&nbsp;Answers</option>
+            <option value="cssm">&nbsp;&nbsp;&nbsp;Newsgroup</option>
+          	<option value="linkexchange">&nbsp;&nbsp;&nbsp;Link Exchange</option>
+          	<option value="blogs">&nbsp;&nbsp;&nbsp;Blogs</option>
+          	<option value="trendy">&nbsp;&nbsp;&nbsp;Trendy</option>
+          	<option value="cody">&nbsp;&nbsp;&nbsp;Cody</option>
+          	<option value="contest">&nbsp;&nbsp;&nbsp;Contest</option>
+          <option value="entire1">MathWorks.com</option>
+        </select>
+<input type="text" name="query" size="10" class="formelem" value="">
+<input type="submit" value="Go" class="formelem gobutton">
+</form>
+
+		  <ol id="access2">
+  <li class="first">
+    <a href="https://www.mathworks.com/accesslogin/createProfile.do?uri=http%3A%2F%2Fwww.mathworks.com%2Fmatlabcentral%2Ffileexchange%2F3215-fit-ellipse%2Fcontent%2Ffit_ellipse" id="create_account_link">Create Account</a>
+  </li>
+  <li>
+    <a href="https://www.mathworks.com/accesslogin/index_fe.do?uri=http%3A%2F%2Fwww.mathworks.com%2Fmatlabcentral%2Ffileexchange%2F3215-fit-ellipse%2Fcontent%2Ffit_ellipse" id="login_link">Log In</a>
+  </li>
+</ol>
+
+
+      </div>
+	  
+        <div id="globalnav">
+        <!-- from includes/global_nav.html -->
+        <ol>
+                <li class=";">
+                        <a href="http://www.mathworks.com/matlabcentral/fileexchange/?s_tid=gn_mlc_fx">File Exchange</a> 
+                </li>
+                <li class=";">
+                        <a href="http://www.mathworks.com/matlabcentral/answers/?s_tid=gn_mlc_an">Answers</a> 
+                </li>
+                <li class=";">
+                        <a href="http://www.mathworks.com/matlabcentral/newsreader/?s_tid=gn_mlc_ng">Newsgroup</a> 
+                </li>
+                <li class=";">
+                        <a href="http://www.mathworks.com/matlabcentral/linkexchange/?s_tid=gn_mlc_lx">Link Exchange</a> 
+                </li>
+                <li class=";">
+                        <a href="http://blogs.mathworks.com/?s_tid=gn_mlc_blg">Blogs</a> 
+                </li>
+                <li class=";">
+                        <a href="http://www.mathworks.com/matlabcentral/trendy/?s_tid=gn_mlc_tnd">Trendy</a> 
+                </li>
+                <li class=";">
+                        <a href="http://www.mathworks.com/matlabcentral/cody/?s_tid=gn_mlc_cody">Cody</a> 
+                </li>
+                <li class=";">
+                        <a href="http://www.mathworks.com/matlabcentral/contest/?s_tid=gn_mlc_cn">Contest</a> 
+                </li>
+                <li class="icon mathworks">
+                        <a href="http://www.mathworks.com/?s_tid=gn_mlc_main">MathWorks.com</a> 
+                </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <div id="middle">
+  <div class="wrapper">
+
+    <div id="mainbody" class="columns2">
+  
+  
+
+  <div class="manifest">
+
+    <div id="download_zip_button">
+            <div class="btnCont ctaBtn ctaBlueBtn btnSmall">
+              <div class="btn download"><a href="http://www.mathworks.com/matlabcentral/fileexchange/submissions/3215/v/1/download/zip" class="link--download  nologin" title="Download Now">Download Zip</a></div>
+            </div>
+          </div>
+
+
+      <p class="license">
+      Code covered by the <a href="http://www.mathworks.com/matlabcentral/fileexchange/view_license?file_info_id=3215" popup="new_window height=500,width=640,scrollbars=yes">BSD License</a>
+      <a href="http://www.mathworks.com/matlabcentral/fileexchange/help_license#bsd" class="info notext preview_help" onclick="window.open(this.href,&#39;small&#39;,&#39;toolbar=no,resizable=yes,status=yes,menu=no,scrollbars=yes,width=600,height=550&#39;);return false;">&nbsp;</a>
+  </p>
+
+
+
+  
+  <h3 class="highlights_title">Highlights from <br>
+    <a href="http://www.mathworks.com/matlabcentral/fileexchange/3215-fit-ellipse" class="manifest_title">fit_ellipse</a>
+  </h3>
+  <ul class="manifest">
+      <li class="manifest"><a href="./fit_elliplse_files/fit_elliplse.html" class="function" title="Function">fit_ellipse( x,y,axis_han...</a><span class="description">% fit_ellipse - finds the best fit to an ellipse for the given set of points.
+</span></li>
+    <li class="manifest_allfiles">
+      <a href="http://www.mathworks.com/matlabcentral/fileexchange/3215-fit-ellipse/content/fit_ellipse.zip" id="view_all_files">View all files</a>
+    </li>
+  </ul>
+
+</div>
+
+
+  <table cellpadding="0" cellspacing="0" class="details file contents">
+    <tbody><tr>
+      <th class="maininfo">
+        
+  <div id="thumbnail" style="padding-bottom: 3px;">
+    <a href="http://www.mathworks.com/matlabcentral/fileexchange/screenshots/313/original.jpg" border="0"><img itemprop="image" src="./fit_elliplse_files/preview.jpg" width="100" alt="image thumbnail"></a>
+  </div>
+
+
+<div id="details">
+  <h1 itemprop="name">fit_ellipse</h1>
+  <p id="author">
+    by 
+    <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <span itemprop="name"><a href="http://www.mathworks.com/matlabcentral/profile/authors/869576-ohad-gal" class="author_inline results_author" data-cp-link-id="1">Ohad Gal</a>
+
+</span></span></p><div class="profile mlc_author_popover" data-cp-popup-id="1" vocab="http://schema.org/" typeof="Person">
+  <h3 class="profile__name" property="name"><a href="http://www.mathworks.com/matlabcentral/profile/authors/869576-ohad-gal">Ohad Gal <span>(view profile)</span></a></h3>
+
+    <div class="profile__image">
+      <a href="http://www.mathworks.com/matlabcentral/profile/authors/869576-ohad-gal"><img src="./fit_elliplse_files/profilepic_default.gif"></a>
+    </div>
+  <div class="profile__stats" typeof="CreativeWork">
+    
+  <ul>
+    <li property="fileExchange">
+      <span class="icon-fileexchange"></span> <a href="http://www.mathworks.com/matlabcentral/fileexchange/?term=authorid%3A8378"><span property="fileExchange_count">12</span> files</a>
+    </li>
+    <li property="downloads">
+      <span class="icon-download"></span> <span property="downloads_count">635</span> downloads
+    </li>
+      <li property="rating">
+
+        <div class="rating" title="4.05021">
+          <div class="rate_scale">
+            <div class="rated" property="aggregateRating" style="width: 81.0042%">4.05021</div>
+          </div>
+        </div>
+
+      </li>
+  </ul>
+
+  </div>
+</div>
+
+    
+  <p></p>
+  <p>&nbsp;</p>
+  <p>
+    <span id="submissiondate">
+      31 Mar 2003
+    </span>
+      <span id="date_updated">(Updated 
+        <span itemprop="datePublished" content="2003-10-02">02 Oct 2003</span>)
+      </span>
+  </p>
+
+  <p id="summary">Find the best fit for an ellipse using a given set of points (a closed contour).</p>
+
+
+  
+</div>
+
+        
+      </th>
+    </tr>
+    <tr>
+      <td class="file">
+        <table cellpadding="0" cellspacing="0" border="0" class="fileview section">
+          <tbody><tr class="title">
+            <th><span class="heading">fit_ellipse( x,y,axis_handle )
+</span></th>
+          </tr>
+          <tr>
+            <td>
+              
+              <div class="codecontainer"><pre class="matlab-code">function ellipse_t = fit_ellipse( x,y,axis_handle )
+%
+% fit_ellipse - finds the best fit to an ellipse for the given set of points.
+%
+% Format:   ellipse_t = fit_ellipse( x,y,axis_handle )
+%
+% Input:    x,y         - a set of points in 2 column vectors. AT LEAST 5 points are needed !
+%           axis_handle - optional. a handle to an axis, at which the estimated ellipse 
+%                         will be drawn along with it's axes
+%
+% Output:   ellipse_t - structure that defines the best fit to an ellipse
+%                       a           - sub axis (radius) of the X axis of the non-tilt ellipse
+%                       b           - sub axis (radius) of the Y axis of the non-tilt ellipse
+%                       phi         - orientation in radians of the ellipse (tilt)
+%                       X0          - center at the X axis of the non-tilt ellipse
+%                       Y0          - center at the Y axis of the non-tilt ellipse
+%                       X0_in       - center at the X axis of the tilted ellipse
+%                       Y0_in       - center at the Y axis of the tilted ellipse
+%                       long_axis   - size of the long axis of the ellipse
+%                       short_axis  - size of the short axis of the ellipse
+%                       status      - status of detection of an ellipse
+%
+% Note:     if an ellipse was not detected (but a parabola or hyperbola), then
+%           an empty structure is returned
+
+% =====================================================================================
+%                  Ellipse Fit using Least Squares criterion
+% =====================================================================================
+% We will try to fit the best ellipse to the given measurements. the mathematical
+% representation of use will be the CONIC Equation of the Ellipse which is:
+% 
+%    Ellipse = a*x^2 + b*x*y + c*y^2 + d*x + e*y + f = 0
+%   
+% The fit-estimation method of use is the Least Squares method (without any weights)
+% The estimator is extracted from the following equations:
+%
+%    g(x,y;A) := a*x^2 + b*x*y + c*y^2 + d*x + e*y = f
+%
+%    where:
+%       A   - is the vector of parameters to be estimated (a,b,c,d,e)
+%       x,y - is a single measurement
+%
+% We will define the cost function to be:
+%
+%   Cost(A) := (g_c(x_c,y_c;A)-f_c)'*(g_c(x_c,y_c;A)-f_c)
+%            = (X*A+f_c)'*(X*A+f_c) 
+%            = A'*X'*X*A + 2*f_c'*X*A + N*f^2
+%
+%   where:
+%       g_c(x_c,y_c;A) - vector function of ALL the measurements
+%                        each element of g_c() is g(x,y;A)
+%       X              - a matrix of the form: [x_c.^2, x_c.*y_c, y_c.^2, x_c, y_c ]
+%       f_c            - is actually defined as ones(length(f),1)*f
+%
+% Derivation of the Cost function with respect to the vector of parameters "A" yields:
+%
+%   A'*X'*X = -f_c'*X = -f*ones(1,length(f_c))*X = -f*sum(X)
+%
+% Which yields the estimator:
+%
+%       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%       |  A_least_squares = -f*sum(X)/(X'*X) -&gt;(normalize by -f) = sum(X)/(X'*X)  |
+%       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%
+% (We will normalize the variables by (-f) since "f" is unknown and can be accounted for later on)
+%  
+% NOW, all that is left to do is to extract the parameters from the Conic Equation.
+% We will deal the vector A into the variables: (A,B,C,D,E) and assume F = -1;
+%
+%    Recall the conic representation of an ellipse:
+% 
+%       A*x^2 + B*x*y + C*y^2 + D*x + E*y + F = 0
+% 
+% We will check if the ellipse has a tilt (=orientation). The orientation is present
+% if the coefficient of the term "x*y" is not zero. If so, we first need to remove the
+% tilt of the ellipse.
+%
+% If the parameter "B" is not equal to zero, then we have an orientation (tilt) to the ellipse.
+% we will remove the tilt of the ellipse so as to remain with a conic representation of an 
+% ellipse without a tilt, for which the math is more simple:
+%
+% Non tilt conic rep.:  A`*x^2 + C`*y^2 + D`*x + E`*y + F` = 0
+%
+% We will remove the orientation using the following substitution:
+%   
+%   Replace x with cx+sy and y with -sx+cy such that the conic representation is:
+%   
+%   A(cx+sy)^2 + B(cx+sy)(-sx+cy) + C(-sx+cy)^2 + D(cx+sy) + E(-sx+cy) + F = 0
+%
+%   where:      c = cos(phi)    ,   s = sin(phi)
+%
+%   and simplify...
+%
+%       x^2(A*c^2 - Bcs + Cs^2) + xy(2A*cs +(c^2-s^2)B -2Ccs) + ...
+%           y^2(As^2 + Bcs + Cc^2) + x(Dc-Es) + y(Ds+Ec) + F = 0
+%
+%   The orientation is easily found by the condition of (B_new=0) which results in:
+% 
+%   2A*cs +(c^2-s^2)B -2Ccs = 0  ==&gt; phi = 1/2 * atan( b/(c-a) )
+%   
+%   Now the constants   c=cos(phi)  and  s=sin(phi)  can be found, and from them
+%   all the other constants A`,C`,D`,E` can be found.
+%
+%   A` = A*c^2 - B*c*s + C*s^2                  D` = D*c-E*s
+%   B` = 2*A*c*s +(c^2-s^2)*B -2*C*c*s = 0      E` = D*s+E*c 
+%   C` = A*s^2 + B*c*s + C*c^2
+%
+% Next, we want the representation of the non-tilted ellipse to be as:
+%
+%       Ellipse = ( (X-X0)/a )^2 + ( (Y-Y0)/b )^2 = 1
+%
+%       where:  (X0,Y0) is the center of the ellipse
+%               a,b     are the ellipse "radiuses" (or sub-axis)
+%
+% Using a square completion method we will define:
+%       
+%       F`` = -F` + (D`^2)/(4*A`) + (E`^2)/(4*C`)
+%
+%       Such that:    a`*(X-X0)^2 = A`(X^2 + X*D`/A` + (D`/(2*A`))^2 )
+%                     c`*(Y-Y0)^2 = C`(Y^2 + Y*E`/C` + (E`/(2*C`))^2 )
+%
+%       which yields the transformations:
+%       
+%           X0  =   -D`/(2*A`)
+%           Y0  =   -E`/(2*C`)
+%           a   =   sqrt( abs( F``/A` ) )
+%           b   =   sqrt( abs( F``/C` ) )
+%
+% And finally we can define the remaining parameters:
+%
+%   long_axis   = 2 * max( a,b )
+%   short_axis  = 2 * min( a,b )
+%   Orientation = phi
+%
+%
+
+% initialize
+orientation_tolerance = 1e-3;
+
+% empty warning stack
+warning( '' );
+
+% prepare vectors, must be column vectors
+x = x(:);
+y = y(:);
+
+% remove bias of the ellipse - to make matrix inversion more accurate. (will be added later on).
+mean_x = mean(x);
+mean_y = mean(y);
+x = x-mean_x;
+y = y-mean_y;
+
+% the estimation for the conic equation of the ellipse
+X = [x.^2, x.*y, y.^2, x, y ];
+a = sum(X)/(X'*X);
+
+% check for warnings
+if ~isempty( lastwarn )
+    disp( 'stopped because of a warning regarding matrix inversion' );
+    ellipse_t = [];
+    return
+end
+
+% extract parameters from the conic equation
+[a,b,c,d,e] = deal( a(1),a(2),a(3),a(4),a(5) );
+
+% remove the orientation from the ellipse
+if ( min(abs(b/a),abs(b/c)) &gt; orientation_tolerance )
+    
+    orientation_rad = 1/2 * atan( b/(c-a) );
+    cos_phi = cos( orientation_rad );
+    sin_phi = sin( orientation_rad );
+    [a,b,c,d,e] = deal(...
+        a*cos_phi^2 - b*cos_phi*sin_phi + c*sin_phi^2,...
+        0,...
+        a*sin_phi^2 + b*cos_phi*sin_phi + c*cos_phi^2,...
+        d*cos_phi - e*sin_phi,...
+        d*sin_phi + e*cos_phi );
+    [mean_x,mean_y] = deal( ...
+        cos_phi*mean_x - sin_phi*mean_y,...
+        sin_phi*mean_x + cos_phi*mean_y );
+else
+    orientation_rad = 0;
+    cos_phi = cos( orientation_rad );
+    sin_phi = sin( orientation_rad );
+end
+
+% check if conic equation represents an ellipse
+test = a*c;
+switch (1)
+case (test&gt;0),  status = '';
+case (test==0), status = 'Parabola found';  warning( 'fit_ellipse: Did not locate an ellipse' );
+case (test&lt;0),  status = 'Hyperbola found'; warning( 'fit_ellipse: Did not locate an ellipse' );
+end
+
+% if we found an ellipse return it's data
+if (test&gt;0)
+    
+    % make sure coefficients are positive as required
+    if (a&lt;0), [a,c,d,e] = deal( -a,-c,-d,-e ); end
+    
+    % final ellipse parameters
+    X0          = mean_x - d/2/a;
+    Y0          = mean_y - e/2/c;
+    F           = 1 + (d^2)/(4*a) + (e^2)/(4*c);
+    [a,b]       = deal( sqrt( F/a ),sqrt( F/c ) );    
+    long_axis   = 2*max(a,b);
+    short_axis  = 2*min(a,b);
+
+    % rotate the axes backwards to find the center point of the original TILTED ellipse
+    R           = [ cos_phi sin_phi; -sin_phi cos_phi ];
+    P_in        = R * [X0;Y0];
+    X0_in       = P_in(1);
+    Y0_in       = P_in(2);
+    
+    % pack ellipse into a structure
+    ellipse_t = struct( ...
+        'a',a,...
+        'b',b,...
+        'phi',orientation_rad,...
+        'X0',X0,...
+        'Y0',Y0,...
+        'X0_in',X0_in,...
+        'Y0_in',Y0_in,...
+        'long_axis',long_axis,...
+        'short_axis',short_axis,...
+        'status','' );
+else
+    % report an empty structure
+    ellipse_t = struct( ...
+        'a',[],...
+        'b',[],...
+        'phi',[],...
+        'X0',[],...
+        'Y0',[],...
+        'X0_in',[],...
+        'Y0_in',[],...
+        'long_axis',[],...
+        'short_axis',[],...
+        'status',status );
+end
+
+% check if we need to plot an ellipse with it's axes.
+if (nargin&gt;2) &amp; ~isempty( axis_handle ) &amp; (test&gt;0)
+    
+    % rotation matrix to rotate the axes with respect to an angle phi
+    R = [ cos_phi sin_phi; -sin_phi cos_phi ];
+    
+    % the axes
+    ver_line        = [ [X0 X0]; Y0+b*[-1 1] ];
+    horz_line       = [ X0+a*[-1 1]; [Y0 Y0] ];
+    new_ver_line    = R*ver_line;
+    new_horz_line   = R*horz_line;
+    
+    % the ellipse
+    theta_r         = linspace(0,2*pi);
+    ellipse_x_r     = X0 + a*cos( theta_r );
+    ellipse_y_r     = Y0 + b*sin( theta_r );
+    rotated_ellipse = R * [ellipse_x_r;ellipse_y_r];
+    
+    % draw
+    hold_state = get( axis_handle,'NextPlot' );
+    set( axis_handle,'NextPlot','add' );
+    plot( new_ver_line(1,:),new_ver_line(2,:),'r' );
+    plot( new_horz_line(1,:),new_horz_line(2,:),'r' );
+    plot( rotated_ellipse(1,:),rotated_ellipse(2,:),'r' );
+    set( axis_handle,'NextPlot',hold_state );
+end
+</pre></div>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+
+  </tbody></table>
+  <script src="./fit_elliplse_files/show.js" type="text/javascript"></script>
+
+<p id="contactus"><a href="http://www.mathworks.com/company/feedback/">Contact us</a></p>
+<!-- Quantcast Tag -->
+<script>
+(function(){
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/aquant.js?a=p-zfNtLVVEHXE-1";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem,scpt);
+}());
+var smarttagdata={qacct: 'p-zfNtLVVEHXE-1',
+orderid: '',
+revenue: '',
+};
+</script>
+<noscript>
+&lt;img src="//pixel.quantserve.com/pixel/p-zfNtLVVEHXE-1.gif?labels=_fp.event.Default;" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/&gt;
+</noscript>
+<!-- End Quantcast tag -->
+<!-- BEGIN Google Code for UK and .COM Domains-->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1023777138;
+var google_conversion_label = "SVIBCMq3xwIQ8rKW6AM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./fit_elliplse_files/conversion.js">
+</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./fit_elliplse_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?frame=0&amp;random=1430815770726&amp;cv=7&amp;fst=1430815770726&amp;num=1&amp;fmt=1&amp;label=SVIBCMq3xwIQ8rKW6AM&amp;guid=ON&amp;u_h=1050&amp;u_w=1680&amp;u_ah=1010&amp;u_aw=1680&amp;u_cd=24&amp;u_his=2&amp;u_tz=120&amp;u_java=true&amp;u_nplug=6&amp;u_nmime=8&amp;frm=0&amp;url=http%3A//www.mathworks.com/matlabcentral/fileexchange/3215-fit-ellipse/content//fit_ellipse.m&amp;ref=http%3A//www.mathworks.com/matlabcentral/fileexchange/3215-fit-ellipse&amp;vis=1" /&gt;</iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1023777138/?value=0&amp;label=SVIBCMq3xwIQ8rKW6AM&amp;guid=ON&amp;script=0"/&gt;
+&lt;/div&gt;
+</noscript>
+<!-- END Google Code for UK and .COM Domains-->
+
+      	
+      
+</div>
+<div class="clearboth">&nbsp;</div>
+</div>
+</div>
+<!-- footer.html -->
+<!-- START OF FOOTER -->
+
+<div id="mlc-footer">
+  <script type="text/javascript">
+function clickDynamic(obj, target_url, tracking_code) {
+	var pos=target_url.indexOf("?");
+	if (pos<=0) { 
+		var linkComponents = target_url + tracking_code;
+		obj.href=linkComponents;
+	} 
+}
+</script>
+  <div class="wrapper">
+    <div>
+      <ul id="matlabcentral">
+        <li class="copyright first">© 1994-2015 The MathWorks, Inc.</li>
+        <li class="first"><a href="http://www.mathworks.com/help.html" title="Site Help">Site Help</a></li>
+        <li><a href="http://www.mathworks.com/company/aboutus/policies_statements/patents.html" title="patents" rel="nofollow">Patents</a></li>
+        <li><a href="http://www.mathworks.com/company/aboutus/policies_statements/trademarks.html" title="trademarks" rel="nofollow">Trademarks</a></li>
+        <li><a href="http://www.mathworks.com/company/aboutus/policies_statements/" title="privacy policy" rel="nofollow">Privacy Policy</a></li>
+        <li><a href="http://www.mathworks.com/company/aboutus/policies_statements/piracy.html" title="preventing piracy" rel="nofollow">Preventing Piracy</a></li>
+        <li class="last"><a href="http://www.mathworks.com/matlabcentral/termsofuse.html" title="Terms of Use" rel="nofollow">Terms of Use</a></li>
+        <li class="icon"><a href="http://www.mathworks.com/company/rss/" title="RSS" class="rssfeed" rel="nofollow"><span class="text">RSS</span></a></li>
+        <li class="icon"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_lkd&url=http://www.linkedin.com/company/the-mathworks_2" title="LinkedIn" class="linkedin" rel="nofollow" target="_blank"></a></li>
+        <li class="icon"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_fbk&url=https://plus.google.com/117177960465154322866?prsrc=3" title="Google+" class="google" rel="nofollow" target="_blank"><span class="text">Google+</span></a></li>
+        <li class="icon"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_fbk&url=http://www.facebook.com/MATLAB" title="Facebook" class="facebook" rel="nofollow" target="_blank"><span class="text">Facebook</span></a></li>
+        		<li class="last icon"><a href="http://www.mathworks.com/programs/bounce_hub_generic.html?s_tid=mlc_twt&url=http://www.twitter.com/MATLAB" title="Twitter" class="twitter" rel="nofollow" target="_blank"><span class="text">Twitter</span></a></li>        
+        
+      </ul>
+      <ul id="mathworks">
+        <li class="first sectionhead">Featured MathWorks.com Topics:</li>
+        <li class="first"><a href="http://www.mathworks.com/products/new_products/latest_features.html" onclick="clickDynamic(this, this.href, &#39;?s_cid=MLC_new&#39;)">New Products</a></li>
+        <li><a href="http://www.mathworks.com/support/" title="support" onclick="clickDynamic(this, this.href, &#39;?s_cid=MLC_support&#39;)">Support</a></li>
+        <li><a href="http://www.mathworks.com/help" title="documentation" onclick="clickDynamic(this, this.href, &#39;?s_cid=MLC_doc&#39;)">Documentation</a></li>
+        <li><a href="http://www.mathworks.com/services/training/" title="training" onclick="clickDynamic(this, this.href, &#39;?s_cid=MLC_training&#39;)">Training</a></li>
+        <li><a href="http://www.mathworks.com/company/events/webinars/" title="Webinars" onclick="clickDynamic(this, this.href, &#39;?s_cid=MLC_webinars&#39;)">Webinars</a></li>
+        <li><a href="http://www.mathworks.com/company/newsletters/" title="newsletters" onclick="clickDynamic(this, this.href, &#39;?s_cid=MLC_newsletters&#39;)">Newsletters</a></li>
+        <li><a href="http://www.mathworks.com/programs/trials/trial_request.html?prodcode=ML&s_cid=MLC_trials" title="MATLAB Trials">MATLAB Trials</a></li>
+        
+        		<li class="last"><a href="http://www.mathworks.com/company/jobs/opportunities/index_en_US.html" title="Careers" onclick="clickDynamic(this, this.href, &#39;?s_cid=MLC_careers&#39;)">Careers</a></li>
+                 
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- END OF FOOTER -->
+
+
+      
+      
+<!-- SiteCatalyst code version: H.24.4.
+Copyright 1996-2012 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="./fit_elliplse_files/s_code.js"></script>
+
+
+<script language="JavaScript" type="text/javascript">
+
+
+
+<!--
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script>
+<!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.24.4. -->
+
+
+  
+
+     
+<!-- BEGIN Qualaroo --> 
+<script type="text/javascript">
+  var _kiq = _kiq || [];
+  (function(){
+    setTimeout(function(){
+			var d = document, f = d.getElementsByTagName('script')[0], s = d.createElement('script'); s.type = 'text/javascript';
+			s.async = true; s.src = '//s3.amazonaws.com/ki.js/49559/ahy.js'; f.parentNode.insertBefore(s, f);
+    }, 1);
+  })();
+</script>
+<!-- END Qualaroo --> 
+
+    
+
+</body></html>
