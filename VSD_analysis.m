@@ -7,6 +7,8 @@ function VSD_analysis(varargin)
     % Authors: 	Helge Ahrens
     % Date: 	02.03.2015
     % Edited:   10.03.2015 % added memory leak switch variable
+    %           11.02.2016 % added movementcorrection frame 6 (Oliver Kuehn)
+    %           11.02.2016 % changed save(folders.FileName,'a','v','-v7.3');
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     if nargin >= 1
         for i1=1:nargin
@@ -32,14 +34,15 @@ function VSD_analysis(varargin)
         do_bool.do_load_all_experiments             = false; 
         % if none of both, please choose experiment %
         % OR %%%
-        do_bool.do_load_experiment_mat              = true;
+        do_bool.do_load_experiment_mat              = false;
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         do_bool.do_save_experiment_mat              = true;
         do_bool.do_save_stimuli                     = true;
         % movement correction needs quite a long time
         do_bool.do_movement_correction_preprocess   = true;
+        do_bool.do_movement_correction_on_reference = true;
         do_bool.do_movement_correction              = true;
-        do_bool.do_create_new_ROIS                  = true;
+        do_bool.do_create_new_ROIS                  = false;
         do_bool.do_load_existing_ROIS               = true;
         do_bool.do_load_existing_ROIS_plot          = false;
 
@@ -150,7 +153,9 @@ function VSD_analysis(varargin)
                         %[runtimevar.v,runtimevar.a] = load_experiment(folders.nam,listing(1).name,Memory_Leak_Protection);
                         [runtimevar.v,runtimevar.a] = load_experiment(folders.nam,folders.listing(1).name);
                         folders.FileName = [folders.PathName_results,folders.experiment_folders(i).name,'.mat'];
-                        save(folders.FileName,'runtimevar.a','runtimevar.v','-v7.3');
+                        a = runtimevar.a;
+                        v = runtimevar.v;
+                        save(folders.FileName,'a','v','-v7.3');
                     end
                 end
             end
@@ -312,6 +317,17 @@ function VSD_analysis(varargin)
     end
     %% Movement Correction %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     if do_bool.do_movement_correction
+        % Olivers addition  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+         % makes movement correction for reference picture nr. 6 %%%%%%%%
+         if do_bool.do_movement_correction_on_reference
+             references(:,:,:) = data_norm(:,:,6,:);
+             references2 = references;
+             references2(:,:,6:size(references,3)+5) = references2;
+             [ref_norm(:,:,:),ref_w(:,:,:),~,~] = make_movement_correction(references2);
+             ref_w2 = ref_w(:,:,6:size(ref_norm,3));
+             data_norm(:,:,6,:) = ref_w2;
+             clear references references2 ref_norm ref_w2 ref_w
+         end
         %keyboard
             %reference_im(:,:)=data_norm(:,:,6,1); % 6th frame of the first trial
          for i=1:size(data_norm,4)
@@ -400,7 +416,7 @@ function VSD_analysis(varargin)
     % define the number of ROIS (regions of interest) in the VARIABLES section
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % trace incl. debleaching is included
-    experiment = vsd_gui(experiment,data_norm,dataw);
+    % vsd_gui(experiment,data_norm,dataw);
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     %keyboard

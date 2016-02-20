@@ -60,26 +60,48 @@ msgbox('Trace All may take some time!')
         analog.stim_max(ii,1) = max(analog.stim_cell{ii,1});
         analog.stim_max(ii,2) = max(analog.stim_cell{ii,2});
     end
-    analog.logic_idx = analog.stim_max>1;
+    % Trials with stimulus
+    analog.logic_idx = analog.stim_max>1;    
+    % Trials with stimulus on both cells
     analog.idx_stim_cell12 = (sum(analog.logic_idx,2)==2);
+    % Trials with stimulus on one cell
     analog.idx_stim_cell1 = ((analog.logic_idx(:,1)-analog.idx_stim_cell12)==1);
     analog.idx_stim_cell2 = ((analog.logic_idx(:,2)-analog.idx_stim_cell12)==1);
+    
+    % These are the indeces for trials without stimulus
     analog.logic_idx = analog.stim_max<1;
+    % both cells no stim
     analog.logic_idx = (sum(analog.logic_idx,2)==2);
+    % indeces of both cells no stim
     analog.logic_idx = find(analog.logic_idx==1);
+    
+    if numel(analog.logic_idx)==0        
+        warning('There are no trials without stimulus!')
+    end
 
     j2 = 1;
     for i4=1:num.BWs
-            for j=1:num.analog
-                if j > analog.logic_idx(j2)
-                    j2 = j2+1;
+            if numel(analog.logic_idx)>=j2
+                for j=1:num.analog                
+                    if j > analog.logic_idx(j2) && numel(analog.logic_idx)>j2
+                        j2 = j2+1;
+                    end
+                    experiment.s_debleached(:,j,i4) =...
+                        trace_debleaching(experiment.traces_norm(:,j,i4),...
+                        experiment.traces_norm(:,analog.logic_idx(j2),i4));
+                    experiment.s_debleached_one(:,j,i4) =...
+                        trace_debleaching(experiment.traces_norm(:,j,i4),...
+                        experiment.traces_norm(:,analog.logic_idx(1),i4));                    
                 end
-                experiment.s_debleached(:,j,i4) =...
-                    trace_debleaching(experiment.traces_norm(:,j,i4),...
-                    experiment.traces_norm(:,analog.logic_idx(j2),i4));
-                experiment.s_debleached_one(:,j,i4) =...
-                    trace_debleaching(experiment.traces_norm(:,j,i4),...
-                    experiment.traces_norm(:,analog.logic_idx(1),i4));
+            else
+                experiment.s_debleached(:,j,i4) = experiment.traces_norm(5:end,j,i4);
+                experiment.s_debleached_warning =...
+                    'There were no trials without stimulus for debleching!';
+                for j=1:num.analog 
+                    experiment.s_debleached_one(:,j,i4) =...
+                            trace_debleaching(experiment.traces_norm(:,j,i4),...
+                            experiment.traces_norm(:,1,i4));
+                end
             end        
             experiment.s_debleached_mean(:,i4) = mean(experiment.s_debleached(:,:,i4),2);
             experiment.s_debleached_one_mean(:,i4) = mean(experiment.s_debleached_one(:,:,i4),2);

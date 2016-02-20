@@ -1,5 +1,5 @@
-function experiment = vsd_gui(varargin)
-    %% function main_figure = hah_vsd_gui(experiment,boundary_tall,varargin)
+function vsd_gui(varargin)
+    %% function vsd_gui(experiment,data_norm,dataw)
     % obligatory input:
     %                   experiment -    struct with the 1dim-cell field  
     %                                   data_snapshots, where each cell is one
@@ -7,7 +7,7 @@ function experiment = vsd_gui(varargin)
     %                   data_norm
     %                   dataw
     % output:
-    %                   experiment
+    %                   -
     %
     if nargin >= 1
         for i1=1:nargin
