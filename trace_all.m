@@ -94,10 +94,10 @@ msgbox('Trace All may take some time!')
                         experiment.traces_norm(:,analog.logic_idx(1),i4));                    
                 end
             else
-                experiment.s_debleached(:,j,i4) = experiment.traces_norm(5:end,j,i4);
                 experiment.s_debleached_warning =...
                     'There were no trials without stimulus for debleching!';
                 for j=1:num.analog 
+					experiment.s_debleached(:,j,i4) = experiment.traces_norm(5:end,j,i4);
                     experiment.s_debleached_one(:,j,i4) =...
                             trace_debleaching(experiment.traces_norm(:,j,i4),...
                             experiment.traces_norm(:,1,i4));
